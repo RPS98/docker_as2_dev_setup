@@ -1,0 +1,29 @@
+services:
+  aerostack2:
+    image: aerostack2-px4-garden
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: aerostack2-px4-garden
+    environment:
+      DISPLAY: $DISPLAY
+      XAUTHORITY: $XAUTHORITY
+    privileged: true
+    restart: always
+    volumes:
+      # display related 
+      - ~/.Xauthority:/root/.Xauthority:ro
+      # # ssh related
+      # - $SSH_AUTH_SOCK:$SSH_AUTH_SOCK:ro
+      # # tmux related
+      - ~/.tmux:/root/.tmux:ro
+      - ~/.tmux.conf:/root/.tmux.conf:r
+      # # git
+      # - ~/.gitconfig:/root/.gitconfig_local:ro
+      # working dirs
+      # - ./workspace:/root/aerostack2_ws/:rw
+      # - ~/px4/PX4-Autopilot:/root/PX4-Autopilot/
+      # - ~/px4/px4_ws:/root/px4_ws/
+      # - ~/px4/project_px4_vision:/root/project_px4_vision/
+    network_mode: "host"
+    command: tail -f /dev/null

@@ -1,0 +1,18 @@
+root@rafa:~/project_gazebo# ros2 launch as2_gazebo_assets launch_simulation.py use_sim_time:=true simulation_config_file:=sim_config/world.json 
+[INFO] [launch]: All log files can be found below /root/.ros/log/2024-06-20-15-53-09-615366-rafa-376
+[INFO] [launch]: Default logging verbosity is set to INFO
+
+[INFO] [ruby $(which gz) sim-1]: process started with pid [380]
+[INFO] [monitor_sim-2]: process started with pid [382]
+[INFO] [create-3]: process started with pid [385]
+[INFO] [parameter_bridge-4]: process started with pid [387]
+[parameter_bridge-4] [INFO] [1718898789.870805580] [world.ros_gz_bridge]: Creating GZ->ROS Bridge: [/clock (ignition.msgs.Clock) -> /clock (rosgraph_msgs/msg/Clock)] (Lazy 0)
+[ruby $(which gz) sim-1] QStandardPaths: XDG_RUNTIME_DIR not set, defaulting to '/tmp/runtime-root'
+[create-3] [INFO] [1718898790.458107857] [ros_gz_sim]: Requested creation of entity.
+[create-3] [INFO] [1718898790.458225708] [ros_gz_sim]: OK creation of entity.
+[INFO] [create-3]: process has finished cleanly [pid 385]
+[ruby $(which gz) sim-1] libEGL warning: egl: failed to create dri2 screen
+[ruby $(which gz) sim-1] libEGL warning: egl: failed to create dri2 screen
+[ruby $(which gz) sim-1] Warning [Utils.cc:132] [/sdf/model[@name="quadrotor_name"]/model[@name="air_pressure"]/link[@name="internal"]/sensor[@name="air_pressure"]/air_pressure/noise:/root/aerostack2_ws/install/as2_gazebo_assets/share/as2_gazebo_assets/models/quadrotor_base/quadrotor_base.sdf:L181]: XML Element[noise], child of element[air_pressure], not defined in SDF. Copying[noise] as children of [air_pressure].
+[ruby $(which gz) sim-1] Warning [Utils.cc:132] [/sdf/model[@name="drone0"]/model[@name="air_pressure"]/link[@name="internal"]/sensor[@name="air_pressure"]/air_pressure/noise:<data-string>:L183]: XML Element[noise], child of element[air_pressure], not defined in SDF. Copying[noise] as children of [air_pressure].
+[ruby $(which gz) sim-1] Warning [Utils.cc:132] [/sdf/model[@name="drone0"]/model[@name="air_pressure"]/link[@name="internal"]/sensor[@name="air_pressure"]/air_pressure/noise:<data-string>:L183]: XML Element[noise], child of element[air_pressure], not defined in SDF. Copying[noise] as children of [air_pressure].

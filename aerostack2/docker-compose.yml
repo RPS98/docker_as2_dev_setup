@@ -8,26 +8,24 @@ services:
     environment:
       DISPLAY: $DISPLAY
       XAUTHORITY: $XAUTHORITY
-      SSH_AUTH_SOCK: $SSH_AUTH_SOCK
-    runtime: nvidia
     privileged: true
     restart: always
     volumes:
       # display related 
-      - ~/.Xauthority:/root/.Xauthority:rw
+      - ~/.Xauthority:/root/.Xauthority
       # ssh related
       - $SSH_AUTH_SOCK:$SSH_AUTH_SOCK
       # nvim related
-      - ~/.config/nvim:/root/.config/nvim:rw
-      - ~/.config/coc:/root/.config/coc:rw
-      - ~/.config/github-copilot:/root/.config/github-copilot:rw
-      - ~/.local/share/nvim/:/root/.local/share/nvim/:rw
+      - ~/.config/nvim:/root/.config/nvim
+      - ~/.config/coc:/root/.config/coc
+      - ~/.config/github-copilot:/root/.config/github-copilot
+      - ~/.local/share/nvim/:/root/.local/share/nvim/
       # tmux related
-      - ~/.tmux:/root/.tmux:ro
-      - ~/.tmux.conf:/root/.tmux.conf:ro
+      - ~/.tmux:/root/.tmux
+      - ~/.tmux.conf:/root/.tmux.conf
       # git
       - ~/.gitconfig:/root/.gitconfig_local
       # working dirs
-      - ./workspace:/root/aerostack2_ws/:rw
+      # - ./workspace:/root/aerostack2_ws/:rw
     network_mode: "host"
     command: tail -f /dev/null

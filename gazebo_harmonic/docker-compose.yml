@@ -1,0 +1,27 @@
+services:
+  aerostack2:
+    image: aerostack2-gazebo
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: aerostack2-gazebo
+    environment:
+      DISPLAY: $DISPLAY
+      XAUTHORITY: $XAUTHORITY
+    privileged: true
+    restart: always
+    volumes:
+      # display related 
+      - ~/.Xauthority:/root/.Xauthority:ro
+      # ssh related
+      - $SSH_AUTH_SOCK:$SSH_AUTH_SOCK:ro
+      # tmux related
+      - ~/.tmux:/root/.tmux:ro
+      - ~/.tmux.conf:/root/.tmux.conf:r
+      # git
+      - ~/.gitconfig:/root/.gitconfig_local:ro
+      # working dirs
+      # - ./workspace:/root/aerostack2_ws/:rw
+      - ./project_gazebo:/root/project_gazebo/:ro
+    network_mode: "host"
+    command: tail -f /dev/null

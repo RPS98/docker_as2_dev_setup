@@ -1,4 +1,4 @@
-FROM aerostack2-nightly-humble
+FROM aerostack2/nightly-humble:latest
 
 WORKDIR /root/
 
@@ -20,6 +20,14 @@ RUN mkdir .config
 RUN mkdir .local/share -p
 
 RUN apt-get install tmux tmuxinator -y
+
+# Build specific aerostack2 version
+WORKDIR /root/aerostack2_ws/src/aerostack2/
+RUN git checkout 546-as2_keyboard_teleoperation-load-namespace-list-with-and
+WORKDIR /root/aerostack2_ws/
+RUN rm -rf build/ install/ log/
+RUN rosdep update && rosdep install --from-paths src --ignore-src -r -y
+RUN . /opt/ros/$ROS_DISTRO/setup.sh && colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release
 
 COPY ./entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
